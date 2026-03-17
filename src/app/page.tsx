@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
+import prisma from "@/lib/db";
 
-const Page = () => {
-  const son = true;
+const Page = async () => {
+  const users = await prisma.user.findMany()
   return (
-    <div className="min-h-screen min-w-screen flex items-center justify-center">
-      <Button></Button>
+    <div className="min-h-screen min-w-screen flex items-center justify-center bg-black text-white">
+      {JSON.stringify(users)}
     </div>
   );
 };
