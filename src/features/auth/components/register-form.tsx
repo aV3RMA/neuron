@@ -24,7 +24,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { authClient } from "@/lib/auth-client"
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { ChartArea } from "lucide-react";
 
@@ -59,18 +59,18 @@ export function RegisterForm() {
         name: values.email,
         email: values.email,
         password: values.password,
-        callbackURL: "/"
-      }, 
+        callbackURL: "/",
+      },
       {
         onSuccess: () => {
-          router.push("/")
+          router.push("/");
         },
 
         onError: (ctx) => {
-          toast.error(ctx.error.message)
-        }
-      }
-    )
+          toast.error(ctx.error.message);
+        },
+      },
+    );
   };
 
   const isPending = form.formState.isSubmitting;
@@ -95,6 +95,12 @@ export function RegisterForm() {
                     type="button"
                     disabled={isPending}
                   >
+                    <Image
+                      src="/logos/github.svg"
+                      width={20}
+                      height={20}
+                      alt="GitHub"
+                    />
                     Continue with GitHub
                   </Button>
                   <Button
@@ -103,6 +109,12 @@ export function RegisterForm() {
                     type="button"
                     disabled={isPending}
                   >
+                    <Image
+                      src="/logos/google.svg"
+                      width={20}
+                      height={20}
+                      alt="Google"
+                    />
                     Continue with Google
                   </Button>
                 </div>
